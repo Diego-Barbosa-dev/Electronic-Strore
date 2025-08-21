@@ -1,0 +1,21 @@
+body{
+    background: #F5F0E6;
+    font-family: 'Roboto', sans-serif;
+}
+
+#MainHeader{
+    background-color: #165A84;
+    width: 100%;
+    height: 200px;
+    border: none;
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+#HomeButtom{
+    border-color:#165A84;
+    display: flex;
+}
+#FooterHeader{
+    background-color: gray ;
+}
