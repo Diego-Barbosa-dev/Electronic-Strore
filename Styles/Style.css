@@ -3,7 +3,7 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
-#MainHeader{
+#MainHeader{ /* El Estilo de */
     background-color: #165A84;
     width: 100%;
     height: 200px;
@@ -15,6 +15,7 @@ body{
 #HomeButtom{
     border-color:#165A84;
     display: flex;
+    
 }
 #FooterHeader{
     background-color: gray ;
