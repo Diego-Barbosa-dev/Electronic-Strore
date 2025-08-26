@@ -14,6 +14,7 @@ body{
     width: 5%; /* el ancho de la imagen */
 }
 
+
 #nav{ /* El Estilo del menú de navegación */
     background-color: #165A84;
     width: 100%;
@@ -21,16 +22,34 @@ body{
     border: none;
     padding: 1%;
 }
-#HomeButtom{
-    border-color:#165A84;
-    display: flex;
-    
+
+#homeButtom{
+    background-color: #165A84;
+    /*border: none;*/
+    margin: 1%;
+    border-radius: 50%;
+
 }
+#homeButtomImage{
+
+    height: 75%;
+    width: 45%;
+}
+.mainButtons{
+    height: 20%;
+    width: 10%;
+    /*border: none;*/
+    border-radius: 20%;
+    margin: 1%;
+    background-color: #165A84;
+ 
+}
+
 footer{
     background-color: gray ;
-    display: flex;
     width: 100%;
     height: 200px;
     margin-top: 100%;
 
 }
+
