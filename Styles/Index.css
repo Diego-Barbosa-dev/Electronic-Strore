@@ -1,3 +1,6 @@
+/* <weight>: Use a value from 100 to 900 */
+/* <uniquifier>: Use a unique and descriptive class name */
+
 body{
     /* Configuramos el color del fondo*/
     background: #F5F0E6;
@@ -10,12 +13,13 @@ body{
 
 #logo{
     border-radius: 50%; /* Se ajusta el redondeado del logo*/
-    height: 35%; /* la altura de la imagen*/
-    width: 5%; /* el ancho de la imagen */
+    height: 116px; /* la altura de la imagen*/
+    width: 116px; /* el ancho de la imagen */
+    cursor: pointer; /*Cuando pase el cursor encima del logo este se vuelva una manito */
 }
 
 
-#nav{ /* El Estilo del menú de navegación */
+nav{ /* El Estilo del menú de navegación */
     background-color: #165A84;
     width: 100%;
     height: 200px;
@@ -23,26 +27,47 @@ body{
     padding: 1%;
 }
 
-#homeButtom{
-    background-color: #165A84;
-    /*border: none;*/
-    margin: 1%;
-    border-radius: 50%;
-
+.navContainer{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
 }
-#homeButtomImage{
+#searchBar{
+    border-radius: 15px;
+    border: none;
+    height: 25px;
+    margin-left: 30px;
+    width: 1000px;
+    font-family: 'Roboto', sans-serif;
+    
+}
 
-    height: 75%;
-    width: 45%;
+.buttonContainer{
+    display: flex;
+    align-items: center;
+    
 }
 .mainButtons{
-    height: 20%;
+    height: 50px;
     width: 10%;
-    /*border: none;*/
-    border-radius: 20%;
-    margin: 1%;
+    border: none;
+    border-radius: 999px;
+    margin-top: 15px;
+    margin-left: 60px;
     background-color: #165A84;
- 
+    cursor: pointer;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.mainButtons:hover{
+    background-color: #034269;
+    transform: translateY(-2px); /* Efecto de elevación sutil */
+}
+
+#principalSection {
+    background-image: url("./Img/bdg.png");
 }
 
 footer{

@@ -5,28 +5,60 @@
     <link href="Styles/Index.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electronic Store</title>
+
+    <!--Tipografía de la página web-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-<div id="nav">
-    <img id="logo" src="Img/logo.png" alt="Electronic Store Logo">
-    <input id="searchBar" type="text" id="search" placeholder="Buscar...">
-    <img src="Img/language.png" alt="Language">
-    <img src="Img/user.png" alt="Account">
-    <img src="Img/shopping-car.png" alt="Shopping Car">
-    <br>
-    <button id="homeButtom">
-        <img id="homeButtomImage" src="Img/home.png" alt="home logo access button">
-    </button>
-    <button type="button" class="mainButtons">Televisores</button>
-    <button type="button" class="mainButtons">Celulares</button>
-    <button type="button" class="mainButtons">Neveras</button>
-    <button type="button" class="mainButtons">Computadoras</button>
-    <button type="button" class="mainButtons">Microondas</button> 
-    <button type="button" class="mainButtons">Ofertas</button>
-</div>
-<header id = "BodyHeader">
-    
-</header>
+    <header>
+    <div class="container">  
+        <!-- Barra de Navegación principal-->
+        <nav>
+            <div class="navContainer">
+                <!--La imagen del logo-->
+                <a href="Index.html">
+                    <img id="logo" src="Img/logo.png" alt="Electronic Store Logo"> 
+                </a>
+                <!--Barra de Busqueda-->
+                <div class="containerSearchvar">
+                    <input id="searchBar" type="text" id="search" placeholder="Buscar...">
+                    <img src="Img/send.png" alt="">
+                </div>
+                <!-- La imagen de lenguaje-->
+                <img src="Img/language.png" alt="Language">
+            
+                <!--Imagen del lenguaje/idioma-->
+                <img src="Img/user.png" alt="Account">
+                <!--Imagen del inicio de Usuario-->
+                <img src="Img/shopping-car.png" alt="Shopping Car">
+            </div>
+            <!--Contenedor de botones y los botones-->
+            <div class="buttonContainer">
+                <button type="button" class="mainButtons">Televisores</button>
+                <button type="button" class="mainButtons">Celulares</button>
+                <button type="button" class="mainButtons">Neveras</button>
+                <button type="button" class="mainButtons">Computadoras</button>
+                <button type="button" class="mainButtons">Microondas</button> 
+                <button type="button" class="mainButtons">Ofertas</button>
+            </div>
+            
+        </nav>
+    </div>
+    </header>
+    <heade>
+        <section id="principalSection">
+            <div class="productContainer">
+                <div class="phoneLogo">
+                    <img src="Img/iPhone.png" alt="Newest iPhone">
+                </div>
+            </div>
+            <div class="productContainer">
+                <img src="Img/laptop.png" alt="Newest laptop">
+            </div>
+        </section>
+    </header>
 </body>
 <footer>
     <div id="foot">
