@@ -2,6 +2,7 @@
 <html lang="en"> 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="Img/logo.png" type="image/png">
     <link href="Styles/Index.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electronic Store</title>
@@ -24,7 +25,9 @@
                 <!--Barra de Busqueda-->
                 <div class="containerSearchvar">
                     <input id="searchBar" type="text" id="search" placeholder="Buscar...">
-                    <img src="Img/send.png" alt="">
+                    <button id="searchButton">   
+                        <img src="Img/send.png" alt="">
+                    </button>        
                 </div>
                 <!-- La imagen de lenguaje-->
                 <img src="Img/language.png" alt="Language">
@@ -35,29 +38,34 @@
                 <img src="Img/shopping-car.png" alt="Shopping Car">
             </div>
             <!--Contenedor de botones y los botones-->
-            <div class="buttonContainer">
-                <button type="button" class="mainButtons">Televisores</button>
-                <button type="button" class="mainButtons">Celulares</button>
-                <button type="button" class="mainButtons">Neveras</button>
-                <button type="button" class="mainButtons">Computadoras</button>
-                <button type="button" class="mainButtons">Microondas</button> 
-                <button type="button" class="mainButtons">Ofertas</button>
+            <div>
+                <ul class="buttonContainer">
+                    <button type="button" class="mainButtons">Televisores</button>
+                    <button type="button" class="mainButtons">Celulares</button>
+                    <button type="button" class="mainButtons">Neveras</button>
+                    <button type="button" class="mainButtons">Computadoras</button>
+                    <button type="button" class="mainButtons">Microondas</button> 
+                    <button type="button" class="mainButtons">Ofertas</button>
+
+                </ul>
             </div>
             
         </nav>
     </div>
     </header>
-    <heade>
-        <section id="principalSection">
+    <header>
+        <main id="principalSection">
             <div class="productContainer">
                 <div class="phoneLogo">
-                    <img src="Img/iPhone.png" alt="Newest iPhone">
+                    <img id="iPhoneImg" src="Img/iPhone.png" alt="Newest iPhone">
+                    <p class="text">Descuentos del 40% al 50% en productos electronicos</p>
                 </div>
             </div>
             <div class="productContainer">
-                <img src="Img/laptop.png" alt="Newest laptop">
+                <img id="laptopImg" src="Img/laptop.png" alt="Newest laptop">
+                <p class="text">Lo mejor del mercado al mejor precio.</p>
             </div>
-        </section>
+        </main>
     </header>
 </body>
 <footer>

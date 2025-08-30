@@ -1,7 +1,12 @@
 /* <weight>: Use a value from 100 to 900 */
 /* <uniquifier>: Use a unique and descriptive class name */
 
+#mainLogo{
+    height: 3px;
+    width: 3px;
+}
 body{
+
     /* Configuramos el color del fondo*/
     background: #F5F0E6;
     /* Configuramos la fuente principal a Roboto y en caso de no encontrarse a sans-serif*/
@@ -33,23 +38,38 @@ nav{ /* El Estilo del menú de navegación */
     gap: 15px;
     padding: 10px 20px;
 }
+
+.containerSearchvar{
+    display: flex;
+    align-items: center;
+}
+
 #searchBar{
-    border-radius: 15px;
+    border-radius: 25px 0px 0px 25px;
     border: none;
-    height: 25px;
+    height: 38px;
     margin-left: 30px;
     width: 1000px;
     font-family: 'Roboto', sans-serif;
     
 }
 
+#searchButton{
+    height: 40px;
+    border: none;
+    border-radius: 0px 25px 25px 0px;
+    cursor: pointer;
+    background-color: white;
+}
+
 .buttonContainer{
     display: flex;
     align-items: center;
     
+    
 }
 .mainButtons{
-    height: 50px;
+    height: 45px;
     width: 10%;
     border: none;
     border-radius: 999px;
@@ -66,8 +86,36 @@ nav{ /* El Estilo del menú de navegación */
     transform: translateY(-2px); /* Efecto de elevación sutil */
 }
 
-#principalSection {
-    background-image: url("./Img/bdg.png");
+main{
+    background: url("Img/bdg.png");
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+
+.productContainer{
+    background-color: rgba(255, 255, 255, 0.65); ;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    height: 302px;
+    width: 731px;
+    border-radius: 59px;
+    gap: 12px;
+    margin-right: 45px;
+    margin-top: 25px;
+    padding: 15px;
+}
+
+.phoneLogo{
+    display: flex;
+    align-items: center;
+}
+.text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+    margin-left: 15px;
 }
 
 footer{
