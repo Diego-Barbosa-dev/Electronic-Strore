@@ -1,10 +1,9 @@
-/* <weight>: Use a value from 100 to 900 */
-/* <uniquifier>: Use a unique and descriptive class name */
-
+/*  */
 #mainLogo{
     height: 3px;
     width: 3px;
 }
+
 body{
 
     /* Configuramos el color del fondo*/
@@ -61,24 +60,33 @@ nav{ /* El Estilo del menú de navegación */
     cursor: pointer;
     background-color: white;
 }
-
+/* <weight>: Use a value from 100 to 900 */
+/* <uniquifier>: Use a unique and descriptive class name */
 .buttonContainer{
     display: flex;
     align-items: center;
-    
+    list-style: none;
+    padding: 0;         /* Quita el espacio interno del ul */
+    margin: 0;          /* Quita el espacio externo del ul */
+    display: flex;      /* (Opcional) Acomoda los botones en línea */
+    gap: 10px;          /* Espacio entre botones */
     
 }
+
 .mainButtons{
-    height: 45px;
-    width: 10%;
-    border: none;
-    border-radius: 999px;
-    margin-top: 15px;
-    margin-left: 60px;
     background-color: #165A84;
-    cursor: pointer;
     color: white;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    
+    display: inline-block;   /* Se comporta como botón */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 999px;    /* Botón redondeado */
+    cursor: pointer;
+    text-decoration: none;   /* Quita el subrayado en <a> */
+    margin-top: 15px;
+    transition: background 0.3s; /* Suaviza el hover */
 }
 
 .mainButtons:hover{
@@ -86,8 +94,8 @@ nav{ /* El Estilo del menú de navegación */
     transform: translateY(-2px); /* Efecto de elevación sutil */
 }
 
-main{
-    background: url("Img/bdg.png");
+.main{
+    background-image: url("Img/bdg.png");
     display: flex;
     flex-direction: column;
     align-items: flex-end;
