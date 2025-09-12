@@ -13,12 +13,14 @@ body{
     /* Quitar el margen y padding por defecto */
     margin: 0;
     padding: 0%;
+
+    
 }
 
 #logo{
     border-radius: 50%; /* Se ajusta el redondeado del logo*/
-    height: 116px; /* la altura de la imagen*/
-    width: 116px; /* el ancho de la imagen */
+    height: 80px; /* la altura de la imagen*/
+    width: 80px; /* el ancho de la imagen */
     cursor: pointer; /*Cuando pase el cursor encima del logo este se vuelva una manito */
 }
 
@@ -26,7 +28,7 @@ body{
 nav{ /* El Estilo del menú de navegación */
     background-color: #165A84;
     width: 100%;
-    height: 200px;
+    height: 150px;
     border: none;
     padding: 1%;
 }
@@ -95,7 +97,9 @@ nav{ /* El Estilo del menú de navegación */
 }
 
 .main{
-    background-image: url("Img/bdg.png");
+    background-image: url("../Img/bgd.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
