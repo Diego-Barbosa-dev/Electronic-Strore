@@ -73,7 +73,7 @@ nav{
 
     display: flex;
     align-items: center;
-    list-style: none;
+    list-style: none;  
     padding: 0;         /* Quita el espacio interno del ul */
     margin: 0;          /* Quita el espacio externo del ul */
     display: flex;      /* (Opcional) Acomoda los botones en línea */
@@ -87,7 +87,7 @@ nav{
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     
-    display: inline-block;   /* Se comporta como botón */
+    display: inline-block;    /* Se comporta como botón */
     padding: 10px 20px;
     border: none;
     border-radius: 999px;    /* Botón redondeado */
