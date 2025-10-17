@@ -1,3 +1,161 @@
+/* Fuente y fondo general */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+/* Barra superior de navegación */
+.topbar {
+    background: #14577b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+    border-radius: 0 0 10px 10px;
+    flex-wrap: wrap;
+}
+
+/* Logo de la barra superior */
+.logo {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 255px;
+}
+
+/* Barra de búsqueda */
+.search {
+    flex: 1;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    min-width: 120px;
+}
+
+/* Botón de búsqueda */
+.search-btn {
+    background: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Imagen del botón de búsqueda */
+.search-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Íconos de la barra superior */
+.icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    margin: 0 5px;
+    background-color: #165A84;
+    cursor: pointer;
+}
+
+/* Contenido principal */
+.main-content {
+    padding: 20px;
+}
+
+/* Hero section (estructura alternativa) */
+.hero-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Repetición de estilos para hero-img y mensaje por compatibilidad */
+.hero-img {
+    width: 300px;
+    max-width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.mensaje {
+    background: #fff;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    max-width: 400px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* Repetición de estilos para tarjetas por compatibilidad */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+.card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.card-img {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.card b {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* Footer alternativo */
+footer {
+    background: #eaeaea;
+    padding: 15px 0 5px 0;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    margin-top: 30px;
+}
+.footer-icons {
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.footer-icons img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+.footer-text {
+    font-size: 0.9em;
+    color: #333;
+}
+
+
 
 /* Contenedor de las imágenes principales en la parte superior */
 .hero-images {
@@ -194,162 +352,7 @@ footer {
         border-radius: 20px;
     }
 }
-/* Fuente y fondo general */
-body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-}
 
-/* Barra superior de navegación */
-.topbar {
-    background: #14577b;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    gap: 10px;
-    border-radius: 0 0 10px 10px;
-    flex-wrap: wrap;
-}
-
-/* Logo de la barra superior */
-.logo {
-    width: 65px;
-    height: 65px;
-    object-fit: contain;
-    margin-right: 10px;
-    cursor: pointer;
-    border-radius: 255px;
-}
-
-/* Barra de búsqueda */
-.search {
-    flex: 1;
-    padding: 7px;
-    border-radius: 5px;
-    border: none;
-    min-width: 120px;
-}
-
-/* Botón de búsqueda */
-.search-btn {
-    background: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-/* Imagen del botón de búsqueda */
-.search-btn img {
-    width: 24px;
-    height: 24px;
-}
-
-/* Íconos de la barra superior */
-.icon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    margin: 0 5px;
-    background-color: #165A84;
-    cursor: pointer;
-}
-
-/* Contenido principal */
-.main-content {
-    padding: 20px;
-}
-
-/* Hero section (estructura alternativa) */
-.hero-section {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-/* Repetición de estilos para hero-img y mensaje por compatibilidad */
-.hero-img {
-    width: 300px;
-    max-width: 100%;
-    border-radius: 20px;
-    object-fit: cover;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-}
-.mensaje {
-    background: #fff;
-    margin: 10px auto;
-    padding: 15px;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    max-width: 400px;
-    text-align: center;
-    font-size: 1.1em;
-}
-
-/* Repetición de estilos para tarjetas por compatibilidad */
-.cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-.card {
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 20px;
-    width: 220px;
-    text-align: center;
-    font-size: 1em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.card-img {
-    width: 100px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-.card b {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1.1em;
-}
-
-/* Footer alternativo */
-footer {
-    background: #eaeaea;
-    padding: 15px 0 5px 0;
-    text-align: center;
-    border-radius: 10px 10px 0 0;
-    margin-top: 30px;
-}
-.footer-icons {
-    margin-bottom: 10px;
-    font-size: 1.3em;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-.footer-icons img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-}
-.footer-text {
-    font-size: 0.9em;
-    color: #333;
-}
 
 /* Responsive alternativo para hero-section y cards */
 @media (max-width: 900px) {
