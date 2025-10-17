@@ -219,6 +219,8 @@ body {
     height: 65px;
     object-fit: contain;
     margin-right: 10px;
+    cursor: pointer;
+    border-radius: 255px;
 }
 
 /* Barra de búsqueda */
@@ -254,6 +256,7 @@ body {
     object-fit: contain;
     margin: 0 5px;
     background-color: #165A84;
+    cursor: pointer;
 }
 
 /* Contenido principal */
