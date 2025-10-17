@@ -82,7 +82,7 @@ nav{
 }
 /* Clase de */
 .mainButtons{
-    background-color: #165A84;
+    background-color: none;
     color: white;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;

@@ -253,6 +253,7 @@ body {
     height: 32px;
     object-fit: contain;
     margin: 0 5px;
+    background-color: #165A84;
 }
 
 /* Contenido principal */
