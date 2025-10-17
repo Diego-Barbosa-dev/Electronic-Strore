@@ -175,8 +175,8 @@ body {
   box-shadow: 0 12px 20px rgba(0,0,0,0.3);  /* sombra más grande y difusa */
 }
 .card-img {
-    width: 100px;
-    height: 80px;
+    width: 120%;
+    height: auto;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 10px;
