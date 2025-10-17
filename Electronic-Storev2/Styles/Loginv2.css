@@ -1,0 +1,139 @@
+:root{
+    --bg:#165A84;
+    --card:#ffffff;
+    --accent:#14557b;
+    --muted:#666;
+    --error:#c0392b;
+}
+
+*{box-sizing: border-box;}
+body{
+    margin:0;
+    font-family: "Roboto", Arial, sans-serif;
+    background:var(--bg);
+    color: #111;
+}
+
+.login-page{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 32px;
+}
+
+.card{
+    width: 420px;
+    max-width: 95%;
+    background:var(--card);
+    border-radius:12px;
+    padding:24px;
+    box-shadow:0 6px 24px rgba(0, 0, 0,0.08);
+}
+
+.card h1{
+    margin:0 0 16px 0;
+    font-size:1.3rem;
+    color:var(--accent);
+}
+
+label{
+    display:block;
+    margin-top:12px;
+    font-size:0.9rem;
+    color:var(--muted);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"]{
+    width:100%;
+    padding:10px 12px;
+    margin-top:6px;
+    border-radius:8px;
+    border: 1px solid #e0e0e0;
+    background: #fafafa;
+    font-size:0.95rem;
+}
+
+.pw-row{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    margin-top:6px;
+}
+
+.pw-row input[type="password"]{
+    flex:1;
+}
+
+.show-toggle{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.showpw{
+    width:18px;
+    height:18px;
+    margin:0;
+    cursor:pointer;
+}
+
+.showPwLabel{
+    font-size:0.85rem;
+    color:var(--muted);
+    cursor:pointer;
+}
+
+#showPw:checked ~ input[type="password"],
+.showpw:checked ~ input[type="password"]{
+    -webkit-text-security:none;
+}
+
+.error{
+    color:var(--error);
+    font-size:0.9rem;
+    margin-top:10px;
+    min-height:20px;
+}
+
+.action{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+    align-items:center;
+}
+button.primary{
+    background:var(--accent);
+    color:white;
+    border:none;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button.link{
+    background:transparent;
+    border:none;
+    color:var(--accent);
+    cursor:pointer;
+}
+
+@media (max-width: 480px){
+    .card{
+        padding:16px;
+    }
+    .pw-row{
+        flex-direction:row;
+    }
+    .showPwLabel{
+        display:none;
+    }
+}
+
+#imagen-fondo{
+    width: 490px;
+    height: 350px;
+    border-radius: 12px;
+}
