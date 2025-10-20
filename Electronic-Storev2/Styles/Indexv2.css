@@ -67,9 +67,60 @@ body {
 .images-container {
     display: flex;
     justify-content: space-between;
-    gap: 280%;
-    margin-left: 10%;
+    gap: 12px;
+    margin-left: 0;
 }
+
+.menu-container {
+    position: relative;
+    margin-left: 420%;
+}
+
+/* Ocultar checkbox */
+.menu-checkbox {
+  display: none;
+}
+
+
+/* Ocultar menú por defecto */
+.menu-ul {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 180px;
+  z-index: 10;
+}
+
+/* Mostrar menú solo si el checkbox está activado */
+.menu-checkbox:checked + .label-menu + .menu-ul {
+  display: flex;
+}
+
+/* Estilo de los enlaces */
+.menu-li {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.menu-li a {
+  text-decoration: none;
+  color: #14577b;
+  font-weight: 500;
+  display: block;
+}
+
+.menu-li a:hover {
+  background-color: #f0f0f0;
+}
+
 
 /* Separador de iconos */
 .icon-div {
@@ -110,7 +161,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
 }
-/* Sección hero */
+/* Sección hero de de imágenes */
 .hero-images {
     display: flex;
     justify-content: space-between;
@@ -164,6 +215,8 @@ body {
     gap: 20px;
     margin-bottom: 20px;
 }
+
+/* Mensaje */
 .mensaje {
     font-family: 'Roboto', sans-serif;
     background: #D9D9D9;
@@ -191,6 +244,8 @@ body {
     padding-top: 30px;
     padding-bottom: 10px;
 }
+/* Estilo de las cartas principal */
+
 .card {
     background: #d9d9d9;
     border-radius: 20px;
@@ -210,6 +265,7 @@ body {
     font-size: 30px;
 }
 
+/* */
 .card:hover {
   transform: translateY(-10px) scale(1.05); /* se eleva y crece */
   box-shadow: 0 12px 20px rgba(0,0,0,0.3);  /* sombra más grande y difusa */
