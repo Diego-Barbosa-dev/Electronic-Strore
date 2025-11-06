@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 body{
     margin:0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    background-color: #d9d9d9; /* fondo de toda la página */
 }
 
 /* Barra de navegación */
@@ -108,20 +111,33 @@ nav {
 }
 
 .first-section .main-cards-container{
-    width: 48%;
+    width: 46%;
     display: flex;
     flex-direction: column; /* cartas en columna */
-    gap: 14px;
+    gap: 22px; /* más separación entre las cartas */
     order: 2;
+    align-items: center; /* centrar las cartas dentro del contenedor */
+    margin: 0 auto; /* centrar el contenedor dentro de sub-products */
 }
 
 .first-section .main-cards{
     background: #d9d9d9; /* cards con color solicitado */
-    padding: 18px 16px;
+    padding: 22px 20px; /* más espacio */
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    font-size: 18px;
+    font-size: 20px; /* letra más grande */
     color: #222;
+    text-align: center; /* letra centrada */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+}
+
+/* forzar que todas las cards tengan el mismo ancho dentro del contenedor */
+.first-section .main-cards{
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Sombra para toda la primera sección */
@@ -149,6 +165,141 @@ nav {
     .first-section .main-cards-container{
         width: 100%;
         max-width: 680px;
+    }
+}
+
+/* Segunda sección: fondo y tarjetas en columna */
+.second-section{
+    background-color: #d9d9d9;
+    padding: 48px 80px; /* más padding lateral para que las cards no toquen el borde */
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+.second-section{
+    display: flex;
+    justify-content: space-between; /* una a la izquierda, una centro, una a la derecha */
+    align-items: flex-start;
+    gap: 56px; /* mayor separación entre tarjetas */
+}
+
+.second-section .cards{
+    background: #d9d9d9; /* indicado por el usuario */
+    /* eliminar anchura fija; usar flex para distribuir pero limitar con max-width */
+    flex: 1 1 0;
+    max-width: 380px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column; /* imagen arriba, contenido abajo */
+    align-items: center;
+    text-align: center;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.16);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+    min-height: 420px; /* aumentar altura sin tocar anchura */
+}
+
+.second-section .cards img{
+    width: 100%;
+    max-width: 220px; /* imagen un poco más grande */
+    height: auto;
+    margin-bottom: 16px;
+}
+
+.second-section .cards h2{
+    margin: 8px 0 8px 0;
+    font-size: 20px;
+}
+
+.second-section .cards p{
+    margin: 0;
+    font-size: 15px;
+    color: #222;
+}
+
+/* Hover: la tarjeta se eleva y la sombra se hace menos oscura */
+.second-section .cards:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 22px 48px rgba(0,0,0,0.06); /* menos oscura */
+}
+
+@media (max-width: 1200px){
+    .second-section{
+        padding: 36px 36px;
+    }
+}
+
+@media (max-width: 900px){
+    .second-section{
+        flex-direction: column;
+        padding: 28px 20px;
+        gap: 18px;
+    }
+    .second-section .cards{
+        width: 100%;
+        min-width: 0;
+        min-height: 220px;
+    }
+}
+
+/* Footer: alinear tres contenedores, texto negro y tamaño ajustado */
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 24px;
+    background-color: #165A84; /* color original */
+    color: #ffffff;
+    box-sizing: border-box;
+    min-height: 64px;
+}
+
+.foot-container-left,
+.foot-container-middle,
+.foot-container-right{
+    display: flex;
+    align-items: center;
+}
+
+.foot-container-left,
+.foot-container-right{
+    gap: 10px;
+}
+
+.foot-container-left img,
+.foot-container-right img{
+    height: 32px;
+    width: auto;
+}
+
+.foot-container-middle{
+    flex: 1 1 auto;            /* ocupa espacio intermedio */
+    justify-content: center;  /* centra horizontalmente el contenido */
+    align-items: flex-end;    /* sitúa el contenido hacia abajo dentro del footer */
+    height: 64px;             /* asegura altura para la alineación vertical */
+}
+
+.foot-container-middle p{
+    margin: 0;
+    text-align: center; /* centro horizontal del texto */
+    color: #ffffff;     /* texto blanco (original) */
+    font-size: 16px;    /* tamaño ajustado */
+    line-height: 1;
+}
+
+@media (max-width: 700px){
+    footer{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+    }
+    .foot-container-middle{
+        align-items: center; /* en móvil ponerlo centrado verticalmente */
+        height: auto;
     }
 }
 
