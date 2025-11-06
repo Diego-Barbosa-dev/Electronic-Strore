@@ -1,0 +1,154 @@
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Barra de navegación */
+nav {
+    background-color: #165A84;
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    position: relative; /* permite centrar .search-bar con absolute */
+}
+
+#logo{
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+}
+
+/* Barra de búsqueda centrada */
+.search-bar{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0; /* sin separación para que parezca fusionado */
+}
+
+.search-bar input{
+    height: 44px;
+    padding: 0 14px;
+    border: none;
+    outline: none;
+    background-color: #ffffff; /* mismo color que el botón */
+    border-radius: 22px 0 0 22px; /* redondeo en la izquierda */
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.search-bar button{
+    height: 44px;
+    padding: 0 12px;
+    border: none;
+    background-color: #ffffff; /* mismo color que el input */
+    cursor: pointer;
+    border-radius: 0 22px 22px 0; /* redondeo en la derecha */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar input, .search-bar button{
+    margin: 0; /* sin márgenes */
+}
+
+.search-bar img{ /* icono dentro del botón */
+    height: 18px;
+    width: 18px;
+}
+
+/* Botones de la derecha */
+.nav-buttoms{
+    margin-left: auto; /* empuja este bloque a la derecha */
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.nav-buttoms img{
+    height: 32px;
+    width: 32px;
+}
+
+/* Ajustes responsivos básicos */
+@media (max-width: 700px){
+    #logo{ height:60px; width:60px; }
+    .search-bar{ position: static; transform: none; margin: 0 auto; }
+}
+
+/* Primera sección: fondo y disposición de imagen + cartas */
+.first-section{
+    background-color: #ffffff; /* ahora el fondo blanco está en la sección */
+    padding: 36px 24px;
+    border-radius: 20px; /* border-radius para la sección */
+}
+
+.first-section .sub-products{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start; /* contenido alineado a la izquierda */
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 24px auto;
+    background-color: transparent; /* quitar fondo a sub-products */
+    border-radius: 0;
+    padding: 0; /* quitar padding interno extra */
+    box-shadow: none;
+}
+
+.first-section .sub-products img{
+    width: 42%;
+    max-width: 420px;
+    height: auto;
+    object-fit: contain;
+    order: 1; /* situar la imagen a la izquierda */
+}
+
+.first-section .main-cards-container{
+    width: 48%;
+    display: flex;
+    flex-direction: column; /* cartas en columna */
+    gap: 14px;
+    order: 2;
+}
+
+.first-section .main-cards{
+    background: #d9d9d9; /* cards con color solicitado */
+    padding: 18px 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    font-size: 18px;
+    color: #222;
+}
+
+/* Sombra para toda la primera sección */
+.first-section{
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* Ajuste para la otra columna dentro de la misma sección si existe */
+.first-section .last-products{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 8px;
+}
+
+@media (max-width: 800px){
+    .first-section .sub-products{
+        flex-direction: column-reverse; /* imagen arriba o abajo según preferencia */
+        align-items: center;
+    }
+    .first-section .sub-products img,
+    .first-section .main-cards-container{
+        width: 100%;
+        max-width: 680px;
+    }
+}
+
