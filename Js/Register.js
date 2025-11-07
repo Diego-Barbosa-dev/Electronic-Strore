@@ -2,7 +2,24 @@
    Script del REGISTRO
    ======================================== */
 
-   document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
+    // Inicializar tema (si el usuario ya seleccionó dark/light en la página principal)
+    (function(){
+      function applyTheme(theme){
+        if(theme === 'dark') document.documentElement.setAttribute('data-theme','dark');
+        else document.documentElement.removeAttribute('data-theme');
+      }
+      var saved = null;
+      try{ saved = localStorage.getItem('site-theme'); }catch(e){ saved = null; }
+      if(saved) applyTheme(saved);
+      else {
+        // Si no hay preferencia guardada, respetar la preferencia del sistema
+        try{
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if(prefersDark) applyTheme('dark');
+        }catch(e){}
+      }
+    })();
     const registerForm = document.getElementById("registerForm");
   
       const nameInput = document.getElementById('name');
