@@ -76,6 +76,74 @@ nav {
     width: 32px;
 }
 
+/* Hacer que los iconos de la derecha parezcan clickeables */
+.nav-buttoms .nav-icon{
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* muestra mano al pasar el ratón */
+    border-radius: 8px;
+    transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+}
+
+.nav-buttoms .nav-icon img{
+    height: 32px;
+    width: 32px;
+    display: block;
+}
+
+.nav-buttoms .nav-icon:hover{
+    transform: translateY(-4px) scale(1.05);
+    background-color: rgba(255,255,255,0.06);
+}
+
+.nav-buttoms .nav-icon:focus{
+    outline: 2px solid #ffffff66;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+}
+
+/* Estilos para el menú desplegable */
+.menu-dropdown{
+    position: absolute;
+    right: 18px; /* alineado con la parte derecha de la nav */
+    top: 68px; /* ajusta según alto de nav */
+    min-width: 180px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+    display: none;
+    flex-direction: column;
+    padding: 6px 8px;
+    z-index: 60;
+}
+
+.menu-dropdown.open{ display: flex; }
+
+.menu-dropdown .menu-item{
+    display: block;
+    padding: 10px 12px;
+    color: #0b3b57;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.menu-dropdown .menu-item:hover,
+.menu-dropdown .menu-item:focus{
+    background: #f0f7ff;
+    outline: none;
+}
+
+/* Responsive: si la pantalla es pequeña, ajustar top para no salirse */
+@media(max-width:700px){
+    .menu-dropdown{ right: 12px; top: 84px; }
+}
+
 /* Ajustes responsivos básicos */
 @media (max-width: 700px){
     #logo{ height:60px; width:60px; }

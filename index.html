@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Electrónica</title>
     <link rel="stylesheet" href="Styles/index.css">
+    <!-- Estilos inline específicos para el mini evento de descuento (solo en index) -->
+    <style>
+    /* El evento ocupará todo el ancho disponible dentro de la sección */
+    .discount-event{
+        width: 100%;
+        max-width: none;
+        margin: 0 auto 18px auto;
+        background: linear-gradient(180deg,#f7fbff,#eaf4ff);
+        border-radius: 12px;
+        padding: 20px;
+        display:flex;
+        gap:20px;
+        align-items:center;
+        box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+        box-sizing: border-box;
+    }
+    /* Imagen más grande y responsiva */
+    .discount-event img{ width: 320px; max-width:40%; height: auto; border-radius:8px; object-fit:cover }
+    .discount-details{ flex:1; display:flex; flex-direction:column; gap:8px; }
+    .discount-details h3{ margin:0; font-size:22px; color:#0b3b57 }
+    .prices{ display:flex; gap:12px; align-items:baseline; flex-wrap:wrap }
+    .original-price{ text-decoration:line-through; color:#8b99a6; font-weight:600 }
+    .final-price{ color:#d93b2e; font-size:24px; font-weight:700 }
+    .discount-savings{ color:#0b6b3b; font-weight:600 }
+    .discount-controls{ display:flex; gap:8px; align-items:center; margin-top:8px }
+    .discount-controls select, .discount-controls button{ padding:8px 10px; border-radius:8px; border:1px solid #cfdbe6; background:#fff }
+    .discount-controls button{ cursor:pointer; background:#165A84; color:#fff; border:none }
+    .countdown-row{ margin-top:6px; font-weight:600; color:#2b4b5f }
+    @media(max-width:1000px){ .discount-event img{ width:260px; max-width:38% } }
+    @media(max-width:800px){ .discount-event{ flex-direction:column; text-align:center; padding:18px } .discount-event img{ width:80%; max-width:320px; margin:0 auto } .discount-controls{ justify-content:center} }
+    </style>
 </head>
 <body>
         <!--Barra de navegación-->
@@ -17,11 +48,22 @@
                 </button>
             </div>
             <div class="nav-buttoms">
-                <img src="Img/shopping-car.png" alt="Carro de venta">
+                <button class="nav-icon" aria-label="Carrito de compras">
+                    <img src="Img/shopping-car.png" alt="Carro de venta">
+                </button>
 
-                <img src="Img/language.png" alt="Idioma">
+                <button class="nav-icon" aria-label="Cambiar idioma">
+                    <img src="Img/language.png" alt="Idioma">
+                </button>
 
-                <img src="Img/menu.svg" alt="Menu">
+                <button class="nav-icon" aria-label="Abrir menú">
+                    <img src="Img/menu.svg" alt="Menu">
+                </button>
+            </div>
+            <!-- Menu desplegable (se mostrará al pulsar el botón de menú) -->
+            <div class="menu-dropdown" id="menu-dropdown" role="menu" aria-hidden="true">
+                <a href="login.html" role="menuitem" class="menu-item">Inicio de Sesión</a>
+                <a href="register.html" role="menuitem" class="menu-item">Registro</a>
             </div>
         </nav>
 
@@ -59,8 +101,70 @@
         </section>
 
         <section class="last-section">
-            <img src="Img/30B02883-1847-4CA8-80AC-393A69BB7CD2 1.svg" alt="">
+            <!-- Imagen original (se mantiene) + mini evento de descuento -->
+            <div class="discount-event" aria-labelledby="discount-title">
+                <img src="Img/30B02883-1847-4CA8-80AC-393A69BB7CD2 1.svg" alt="Laptop en promoción">
+                <div class="discount-details">
+                    <h3 id="discount-title">Evento Flash: Laptop en oferta</h3>
+                    <p>Precio real: <strong id="price-original" class="original-price"></strong></p>
+
+                    <div class="prices">
+                        <div>Precio con descuento: <span id="price-final" class="final-price"></span></div>
+                        <div class="discount-savings" id="price-savings"></div>
+                    </div>
+
+                    <div class="discount-controls">
+                        <label for="discount-select">Selecciona descuento:</label>
+                        <select id="discount-select" aria-label="Selecciona porcentaje de descuento">
+                            <option value="10">10%</option>
+                            <option value="15">15%</option>
+                            <option value="20" selected>20%</option>
+                            <option value="30">30%</option>
+                        </select>
+                        <button id="buy-now">Comprar ahora</button>
+                    </div>
+                    <div class="countdown-row">Tiempo restante: <span id="countdown-timer" aria-live="polite"></span></div>
+                    <small>Stock limitado — oferta válida hasta agotar existencias.</small>
+                </div>
+            </div>
         </section>
+
+        <script>
+        (function(){
+            // Precio base en pesos colombianos
+            const basePrice = 30000000;
+            const fmt = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+
+            const elOriginal = document.getElementById('price-original');
+            const elFinal = document.getElementById('price-final');
+            const elSavings = document.getElementById('price-savings');
+            const select = document.getElementById('discount-select');
+            const buyBtn = document.getElementById('buy-now');
+
+            function updatePrices(){
+                const pct = Number(select.value) / 100;
+                const discounted = Math.round(basePrice * (1 - pct));
+                const savings = basePrice - discounted;
+                elOriginal.textContent = fmt.format(basePrice);
+                elFinal.textContent = fmt.format(discounted);
+                elSavings.textContent = `Ahorras ${fmt.format(savings)} (${select.value}%)`;
+            }
+
+            // Init
+            updatePrices();
+
+            select.addEventListener('change', updatePrices);
+
+            buyBtn.addEventListener('click', function(){
+                // Acción mínima: redirigir a la página del carrito o mostrar mensaje; aquí mostramos alerta simple
+                // Puedes cambiar esto para integrar con el flujo real
+                alert('Has seleccionado la laptop con ' + select.value + '% de descuento. Precio final: ' + elFinal.textContent);
+            });
+        })();
+        </script>
+
+        <!-- Cargar script principal de la página que contiene la cuenta regresiva -->
+        <script src="Js/Index.js"></script>
 </body>
 <footer>
     <div class="foot-container-left">
