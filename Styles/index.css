@@ -18,8 +18,8 @@ body{
 /* Dark theme overrides */
 [data-theme="dark"]{
     --bg: #0f1720;
-    --nav-bg: #0b3b57;
-    --card-bg: #0b2230;
+    --nav-bg: #0b2230; /* 0b3b57 */
+    --card-bg: #0b3b57; /* 0b2230 */
     --text-color: #e6eef6;
     --muted: #9fb3c8;
 }

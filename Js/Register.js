@@ -33,14 +33,14 @@
       const addressError = document.getElementById('address-error');
       const phoneError = document.getElementById('phone-error');
       const passwordError = document.getElementById('password-error');
-
+      //validación del nombre
       function validateName(){
         const v = nameInput.value.trim();
         if(!v) { nameError.textContent = 'El nombre es obligatorio.'; return false; }
         nameError.textContent = '';
         return true;
       }
-
+      //validación del correo
       function validateEmail(){
         const v = emailInput.value.trim();
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -49,14 +49,14 @@
         emailError.textContent = '';
         return true;
       }
-
+      //validación de la dirección
       function validateAddress(){
         const v = addressInput.value.trim();
         if(!v){ addressError.textContent = 'La dirección es obligatoria.'; return false; }
         addressError.textContent = '';
         return true;
       }
-
+      //validación del teléfono
       function validatePhone(){
         const v = phoneInput.value.trim();
         const digits = v.replace(/[^0-9]/g,'');
@@ -65,7 +65,7 @@
         phoneError.textContent = '';
         return true;
       }
-
+      //validación de la contraseña
       function validatePassword(){
         const v = passwordInput.value;
         if(!v){ passwordError.textContent = 'La contraseña es obligatoria.'; return false; }
