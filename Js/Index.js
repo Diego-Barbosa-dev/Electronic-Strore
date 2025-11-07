@@ -78,6 +78,57 @@
 				closeMenu();
 			}
 		});
+        
+		// --- Theme toggle (dark/light) ---
+		const themeToggle = document.getElementById('theme-toggle');
+		function applyTheme(theme){
+			if(theme === 'dark') document.documentElement.setAttribute('data-theme','dark');
+			else document.documentElement.removeAttribute('data-theme');
+			try{ localStorage.setItem('site-theme', theme); }catch(e){}
+		}
+		// Inicializar desde preferencia
+		const saved = (function(){ try{ return localStorage.getItem('site-theme') }catch(e){return null} })();
+		if(saved) applyTheme(saved);
+		else {
+			// comprobar preferencia del sistema
+			const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if(prefersDark) applyTheme('dark');
+		}
+		if(themeToggle){
+			themeToggle.addEventListener('click', function(){
+				const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+				applyTheme(isDark ? 'light' : 'dark');
+			});
+		}
+
+		// --- Scroll reveal using IntersectionObserver ---
+		const revealEls = document.querySelectorAll('.reveal-on-scroll');
+		if(revealEls.length){
+			const obs = new IntersectionObserver((entries)=>{
+				entries.forEach(ent=>{
+					if(ent.isIntersecting){
+						ent.target.classList.add('reveal');
+						obs.unobserve(ent.target);
+					}
+				});
+			}, { threshold: 0.12 });
+			revealEls.forEach(el=>obs.observe(el));
+		}
+
+		// --- Mobile: si la pantalla es pequeña, abrir menú a pantalla completa ---
+		function ensureMobileMenuBehavior(){
+			const isMobile = window.innerWidth <= 700;
+			if(isMobile){
+				// cuando el menú se abre, aplicar clase mobile-open
+				const origOpen = openMenu;
+				openMenu = function(){ menu.classList.add('open','mobile-open'); menu.setAttribute('aria-hidden','false'); const first = menu.querySelector('.menu-item'); if(first) first.focus(); };
+				const origClose = closeMenu;
+				closeMenu = function(){ menu.classList.remove('open','mobile-open'); menu.setAttribute('aria-hidden','true'); menuButton.focus(); };
+			}
+		}
+		// llamar una vez y en resize
+		ensureMobileMenuBehavior();
+		window.addEventListener('resize', ensureMobileMenuBehavior);
 	}
 
 	if(document.readyState === 'loading'){
@@ -85,5 +136,51 @@
 	} else {
 		initMenuAndCountdown();
 	}
+
+})();
+
+
+// Código movido desde index.html: gestión de precios y botones del evento de descuento
+(function(){
+	// Precio base en pesos colombianos
+	const basePrice = 30000000;
+	const fmt = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+
+	const elOriginal = document.getElementById('price-original');
+	const elFinal = document.getElementById('price-final');
+	const elSavings = document.getElementById('price-savings');
+	const select = document.getElementById('discount-select');
+	const buyBtn = document.getElementById('buy-now');
+
+	function updatePrices(){
+		if(!select || !elOriginal || !elFinal || !elSavings) return;
+		const pct = Number(select.value) / 100;
+		const discounted = Math.round(basePrice * (1 - pct));
+		const savings = basePrice - discounted;
+		elOriginal.textContent = fmt.format(basePrice);
+		elFinal.textContent = fmt.format(discounted);
+		elSavings.textContent = `Ahorras ${fmt.format(savings)} (${select.value}%)`;
+	}
+
+	// Init cuando el DOM esté listo
+	function initDiscountControls(){
+		updatePrices();
+		if(select) select.addEventListener('change', updatePrices);
+		if(buyBtn){
+			buyBtn.addEventListener('click', function(){
+				alert('Has seleccionado la laptop con ' + (select ? select.value : '') + '% de descuento. Precio final: ' + (elFinal ? elFinal.textContent : ''));
+			});
+		}
+
+		const addToCartBtn = document.getElementById('add-to-cart');
+		if(addToCartBtn){
+			addToCartBtn.addEventListener('click', function(){
+				alert('carrito agregado');
+			});
+		}
+	}
+
+	if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initDiscountControls);
+	else initDiscountControls();
 
 })();

@@ -31,6 +31,17 @@
     border-radius: 10px;
     box-shadow: 6px 6px 10px rgba(0,0,0,0.1);
   }
+
+/* Dark theme overrides when [data-theme="dark"] is present on the <html> element */
+[data-theme="dark"] body{ background: #071018; }
+[data-theme="dark"] .container{ background: #091827; }
+[data-theme="dark"] .form-container{ background: #07131b; box-shadow: none; }
+[data-theme="dark"] .form-container h2{ color: #dfeffb }
+[data-theme="dark"] label{ color: #d0e6f5 }
+[data-theme="dark"] input{ background-color: #0b2230; color: #d7eef9 }
+[data-theme="dark"] .btn{ background-color: #0b3b57 }
+[data-theme="dark"] .text a{ color: #9fd2ff }
+[data-theme="dark"] .error{ color: #ff9b9b }
   
   .form-container h2 {
     text-align: center;
@@ -56,6 +67,13 @@
   
   input:focus {
     box-shadow: 0 0 0 2px #174e73;
+  }
+
+  .error{
+    color: #d93b2e;
+    margin-top: 6px;
+    font-size: 14px;
+    min-height: 18px;
   }
   
   .btn {
