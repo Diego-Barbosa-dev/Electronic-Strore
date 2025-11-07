@@ -1,0 +1,117 @@
+/* ===========================
+   Estilos del LOGIN
+   =========================== */
+
+   body {
+    font-family: "Poppins", sans-serif;
+    background-color: #174e73;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    background-color: #174e73;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  
+  .form-container {
+    background-color: #f5f4ef;
+    flex: 1;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 10px rgba(0,0,0,0.1);
+  }
+  
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #174e73;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 20px;
+    background-color: #e5e5e5;
+    outline: none;
+  }
+  
+  input:focus {
+    box-shadow: 0 0 0 2px #174e73;
+  }
+  
+  .btn {
+    background-color: #174e73;
+    color: #fff;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .btn:hover {
+    background-color: #1c638f;
+  }
+  
+  .text {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .text a {
+    color: #174e73;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .image-container {
+    flex: 1;
+    background-color: #174e73;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-container img {
+    width: 90%;
+    border-radius: 25px;
+  }
+
+  .Login-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      width: 90%;
+    }
+    .image-container {
+      display: none;
+    }
+  }
+  
