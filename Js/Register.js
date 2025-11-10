@@ -88,9 +88,36 @@
           alert('Revisa los campos en rojo antes de enviar.');
           return;
         }
-        // Simulación de registro exitoso
-        alert(`✅ Registro exitoso, bienvenido ${nameInput.value.trim()}`);
-        window.location.href = 'login.html';
+        // Enviar datos al backend mediante fetch a la ruta /api/users/register
+        // Construimos el payload con los campos requeridos por la API.
+        const payload = {
+          name: nameInput.value.trim(),
+          email: emailInput.value.trim(),
+          address: addressInput.value.trim(),
+          phone: phoneInput.value.trim(),
+          password: passwordInput.value
+        };
+
+        // Petición POST con JSON. La API devuelve 201 en caso de éxito.
+        fetch('/api/users/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(async (res) => {
+          if(res.status === 201){
+            // Registro correcto: redirigimos al login.
+            alert('✅ Registro exitoso, por favor inicia sesión');
+            window.location.href = 'login.html';
+            return;
+          }
+          // Si no fue 201 intentamos leer el error devuelto por la API
+          const data = await res.json().catch(()=>({}));
+          alert('Error: ' + (data.error || 'No se pudo registrar'));
+        }).catch((err)=>{
+          // Error de red o la API no está accesible
+          console.error(err);
+          alert('Error de red al contactar la API.');
+        });
       });
   });
   

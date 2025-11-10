@@ -1,6 +1,11 @@
 // Cuenta regresiva para el mini evento de descuento en index.html
 // Este script actualiza el elemento #countdown-timer si existe en la página.
 
+// Comentarios añadidos: el archivo contiene varias responsabilidades pequeñas:
+// - Inicialización del menú y la cuenta regresiva
+// - Gestión del theme (dark/light)
+// - Lógica de cálculo de precios y botones de compra
+
 (function(){
 	// Tiempo del evento: 24 horas desde la carga (puedes cambiarlo a una fecha fija)
 	const EVENT_DURATION_MS = 24 * 60 * 60 * 1000; // 24 horas
@@ -9,7 +14,9 @@
 		const el = document.getElementById('countdown-timer');
 		if(!el) return; // nada que hacer si elemento no existe
 
-		function update(){
+	// update() calcula la diferencia entre la fecha límite y ahora,
+	// formatea HH:MM:SS y actualiza el texto del elemento.
+	function update(){
 			const now = Date.now();
 			let diff = deadlineTimestamp - now;
 			if(diff <= 0){
@@ -40,7 +47,7 @@
 		const deadline = Date.now() + EVENT_DURATION_MS;
 		startCountdown(deadline);
 
-		// --- Lógica del menú desplegable ---
+	// --- Lógica del menú desplegable ---
 		const menuButton = document.querySelector('button.nav-icon[aria-label="Abrir menú"]');
 		const menu = document.getElementById('menu-dropdown');
 		if(!menuButton || !menu) return;
@@ -101,7 +108,7 @@
 			});
 		}
 
-		// --- Scroll reveal using IntersectionObserver ---
+	// --- Scroll reveal using IntersectionObserver ---
 		const revealEls = document.querySelectorAll('.reveal-on-scroll');
 		if(revealEls.length){
 			const obs = new IntersectionObserver((entries)=>{

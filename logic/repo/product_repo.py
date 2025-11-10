@@ -1,4 +1,4 @@
-"""Repository con soporte dual: SQL (SQLAlchemy) o in-memory fallback.
+"""Repositorio de productos con soporte dual: SQL (SQLAlchemy) o in-memory fallback.
 
 Este módulo detecta si hay un modelo `Product` y `db` disponibles y, si
 es así, usa la implementación SQL. Si no, cae a un repo en memoria.
@@ -12,21 +12,29 @@ try:
     from db import db
     USE_SQL = True
 except Exception:
+    # Si falla la importación (por ejemplo, al ejecutar pruebas o sin DB), usamos el repo en memoria
     USE_SQL = False
 
 
 class InMemoryRepo:
+    """Repositorio simple en memoria para productos.
+
+    Útil para pruebas o cuando la base de datos no está disponible.
+    """
     def __init__(self):
         self._data = {}
         self._next = 1
 
     def list_all(self):
+        # Devuelve la lista de productos almacenados
         return list(self._data.values())
 
     def get(self, pid: int) -> Optional[dict]:
+        # Obtiene un producto por id (o None)
         return self._data.get(pid)
 
     def create(self, data: dict) -> dict:
+        # Inserta un nuevo producto y asigna un id incremental
         pid = self._next
         self._next += 1
         item = {
@@ -39,6 +47,7 @@ class InMemoryRepo:
         return item
 
     def update(self, pid: int, data: dict) -> Optional[dict]:
+        # Actualiza campos permitidos si el producto existe
         if pid not in self._data:
             return None
         item = self._data[pid]
@@ -49,10 +58,16 @@ class InMemoryRepo:
         return item
 
     def delete(self, pid: int) -> bool:
+        # Elimina el producto; devuelve True si existía
         return self._data.pop(pid, None) is not None
 
 
 class SQLProductRepo:
+    """Repositorio que usa SQLAlchemy y el modelo Product.
+
+    Cada método consulta el modelo y devuelve diccionarios serializables
+    mediante `to_dict()` del modelo.
+    """
     def list_all(self):
         rows = ProductModel.query.all()
         return [r.to_dict() for r in rows]

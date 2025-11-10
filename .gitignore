@@ -1,3 +1,5 @@
 proof.html
 .env
 .gitignore
+__pycache__/
+__init__.py
