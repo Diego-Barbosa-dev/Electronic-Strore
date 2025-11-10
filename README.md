@@ -1,1 +1,3 @@
 # Electronic-Strore
+
+##Funcionamiento
