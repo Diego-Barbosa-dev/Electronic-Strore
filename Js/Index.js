@@ -182,7 +182,26 @@
 		const addToCartBtn = document.getElementById('add-to-cart');
 		if(addToCartBtn){
 			addToCartBtn.addEventListener('click', function(){
-				alert('carrito agregado');
+				// Ejemplo: agregar producto al carrito usando la API
+				const email = prompt('Ingresa tu correo para agregar al carrito:');
+				if(!email) return alert('Correo requerido');
+				const product = 'Laptop'; // Cambia por el nombre real del producto
+				const quantity = 1;
+				fetch('/api/cart/add', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ email, product, quantity })
+				}).then(async (res) => {
+					if(res.status === 201){
+						alert('Producto agregado al carrito');
+						return;
+					}
+					const data = await res.json().catch(()=>({}));
+					alert('Error: ' + (data.error || 'No se pudo agregar al carrito'));
+				}).catch((err)=>{
+					console.error(err);
+					alert('Error de red al contactar la API.');
+				});
 			});
 		}
 	}

@@ -88,18 +88,21 @@
           alert('Revisa los campos en rojo antes de enviar.');
           return;
         }
+        // Determinar base de la API.
+        // Si la página ya está servida desde el backend (puerto 5000) usamos rutas relativas,
+        // en caso contrario (file:// o servidor estático en otro puerto) apuntamos a 127.0.0.1:5000.
+        let API_BASE = 'http://127.0.0.1:5000';
+
         // Enviar datos al backend mediante fetch a la ruta /api/users/register
         // Construimos el payload con los campos requeridos por la API.
         const payload = {
           name: nameInput.value.trim(),
           email: emailInput.value.trim(),
-          address: addressInput.value.trim(),
-          phone: phoneInput.value.trim(),
           password: passwordInput.value
         };
 
         // Petición POST con JSON. La API devuelve 201 en caso de éxito.
-        fetch('/api/users/register', {
+        fetch(API_BASE + '/api/users/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
